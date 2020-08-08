@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta keywords="">
+<style>
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;
+color: #24292e;
+font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+  sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+
+.dark, .solarizedDark {
+  color: #FFF;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: 600;
+}
+
+hr:before {
+  content: '';
+  display: table;
+}
+
+hr:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-roman;
+}
+
+ol ol ol,
+ol ul ol,
+ul ol ol,
+ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+dd {
+  margin-left: 0;
+}
+
+code,
+pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  font-size: 12px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+&:before {
+  content: '';
+  display: table;
+}
+
+&:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+> :first-child {
+  margin-top: 0 !important;
+}
+
+> :last-child {
+  margin-bottom: 0 !important;
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+blockquote {
+  margin: 0;
+  border-left: 0.25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+blockquote,
+dl,
+ol,
+p,
+pre,
+table,
+ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+h1,
+h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.875em;
+}
+
+h6 {
+  color: #6a737d;
+  font-size: 0.85em;
+}
+
+ol,
+ul {
+  padding-left: 2em;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+li {
+  word-wrap: break-all;
+}
+
+li > p {
+  margin-top: 16px;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+table th {
+  font-weight: 600;
+}
+
+table td,
+table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+img {
+  border-style: none;
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+img[align='right'] {
+  padding-left: 20px;
+}
+
+img[align='left'] {
+  padding-right: 20px;
+}
+
+code {
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: 0.2em 0.4em;
+}
+
+p code,
+li code
+{
+  padding: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+pre {
+  word-wrap: normal;
+}
+
+pre > code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.highlight {
+  margin-bottom: 16px;
+}
+
+.highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.highlight pre,
+pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+:checked + .radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.task-list-item {
+  list-style-type: none;
+}
+
+.task-list-item + .task-list-item {
+  margin-top: 3px;
+}
+
+.task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+hr {
+  box-sizing: content-box;
+  background: transparent;
+  overflow: hidden;
+  background-color: #e1e4e8;
+  border: 0;
+  height: 0.25em;
+  margin: 24px 0;
+  padding: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dark p code,
+.dark li code
+{
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: #03C588;
+}
+.auto p code,
+.auto li code
+{
+  background-color: #F9F9F9;
+  border-color: rgba(0,0,0,0.26);
+  color: #03C588;
+}
+.light p code,
+.light li code
+{
+  background-color: #F9F9F9;
+  border-color: rgba(0,0,0,0.26);
+  color: #03C588;
+}
+.sepia p code,
+.sepia li code
+{
+  background-color: #efe8d6;
+  border-color: rgba(0,0,0,0.26);
+  color: #F77942;
+}
+.solarizedDark p code,
+.solarizedDark li code
+{
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: #36abe3;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+</head>
+<body>
+<h1>Symbol tables</h1>
+<p>Function of Symbol Table</p>
+<ul>
+<li>insert a new pair into table</li>
+<li>search for the value</li>
+</ul>
+<h2>API</h2>
+<p>public class ST&#x3C;Key, Value></p>
+<ul>
+<li>create a symbol table<pre class="cm-s-3024-day CodeMirror"><code>ST()
+</code></pre></li>
+<li>put key-value pair into the table<pre class="cm-s-3024-day CodeMirror"><code>void put(Key key, Value, val)   
+</code></pre></li>
+<li>valued paired with key<pre class="cm-s-3024-day CodeMirror"><code>Value get(Key key)
+</code></pre></li>
+<li>remove key(and its value from the table<pre class="cm-s-3024-day CodeMirror"><code>void delete(Key key)
+</code></pre></li>
+<li>is there a value paired with key?<pre class="cm-s-3024-day CodeMirror"><code>boolean contains(Key key)
+</code></pre></li>
+<li>Is the table empty?<pre class="cm-s-3024-day CodeMirror"><code>boolean isEmpty()
+</code></pre></li>
+<li>number of pairs<pre class="cm-s-3024-day CodeMirror"><code>int size()
+</code></pre></li>
+</ul>
+<h3>Conventions</h3>
+<ul>
+<li>Values are not null</li>
+<li>如果table里面没有对应的key,get()以后return null</li>
+<li>如果table里面已经有key，put()以后新的value代替旧的</li>
+</ul>
+<h4>Shorthand methods</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>method</th><th>default implementation</th></tr></thead><tbody><tr><td>void delete (Key key)</td><td>put(key,null)</td></tr><tr><td>boolean contains(Key key)</td><td>return get(key) != null</td></tr><tr><td>boolean isEmpty()</td><td>return size() == 0;</td></tr></tbody></table>
+<h3>ST test For traces</h3>
+<p>Build ST by associating value i with ith string from standard input</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public static void main(String[] args)
+{
+    ST&#x3C;String, Integer> st = new ST&#x3C;String, Integer>();
+    for (int i = 0; !StdIn.isEmpty(); i++)
+    {
+        String key = StdIn.readString();
+        st.put(key, i);
+    }
+    for (String s: st.keys())
+        StdOut.println(s + ' ' + st.get(s));
+    }
+}
+</code></pre>
+<h3>Frequency counter implementation</h3>
+<pre class="cm-s-3024-day CodeMirror"><code>public class FrequencyCounter
+{
+    public static void main(String[] args)
+    {
+        int minlen = Integer.parseInt(args[0]);
+        ST&#x3C;Sting, Integer> st = new ST&#x3C;String, Integer>();
+        while (!StdIn.isEmpty())
+        {
+            String word = StdIn.readString();
+            if (word.length() &#x3C; minlen) continue;
+            if(!st.contains(word))  st.put(word.1);
+            else        st.put(word, st.get(word) + 1);
+        }
+    String max = '';
+    st.put(max, 0);
+    for(String word: st.keys())
+        if (st.get(word) > st.get(max))
+            max = word;
+        StdOUt.println( max + " " + st.get(max));
+    }
+}
+</code></pre>
+<h2>Elementary implementations</h2>
+<h3>Sequential search in a linked list</h3>
+<ul>
+<li>
+<p>Maintain an unordered linked list of key-value pairs</p>
+</li>
+<li>
+<p>Search: 从左到右scan所有的Key直到找到为止</p>
+</li>
+<li>
+<p>Insert:先search一遍，如果找不到在前面加</p>
+</li>
+</ul>
+<h3>Binary search in an unordered array</h3>
+<p>一分为二，分别查找</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public Value get(Key key)
+{
+    if isEmpty()    return null;
+    int i = rank(key);
+    if(i &#x3C; N &#x26;&#x26; keys[i].compareTo(key) == 0)    return keys[i];
+    else    return null;
+    
+}
+
+private int rank(Key key)
+{
+    int lo = 0, hi = N-1;
+    ;
+    while(lo&#x3C;=hi)
+    {
+        int mid = (hi + lo)/2
+        int cmp = keys[mid].compareTo(key);
+        if(cmp > 0)     hi = mid - 1;
+        else if(cmp &#x3C; 0)    lo = mid + 1;
+        else if (cmp == 0)  return mid;
+    }
+    return lo;
+    
+}
+</code></pre>
+<h3>Summary</h3>
+<p>ST</p>
+<h1>Binary search trees</h1>
+<h2>BSTs</h2>
+<p>A BST is a binary tree in symmetric order</p>
+<p>Symmetric order</p>
+<ul>
+<li>Every node's key is larger than all keys in the left subtree</li>
+<li>Every node's key is smaller than all keys in the right subtree</li>
+</ul>
+<p>Node 的component</p>
+<ul>
+<li>key and value</li>
+<li>reference to the left and right subtree</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private class Node
+{
+    private Key key;
+    private Value val;
+    private Node left, right;
+    public Node (Key key, Value, val)
+    {
+        this.key = key;
+        that.val = val;
+    }
+}
+</code></pre>
+<h3>BST search</h3>
+<ul>
+<li>If less, go left</li>
+<li>If greater, go right</li>
+<li>If equal, search hit</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public Value get(Key key)
+{
+    Node x = root;
+    while(x != null)
+    {
+        int cmp = key.compareTo(x.key);
+        if (cmp &#x3C; 0)    x = x.left;
+        else if (cmp > 0)   x = x.right;
+        else if (cmp = 0)   return x.value;
+    }
+    return null;
+}
+</code></pre>
+<p>Cost = 1+ depth of node</p>
+<h3>BST insert</h3>
+<p>Search for key
+1. 如果key 在这个tree里面，reset value
+2. 如果key 不在， add the pairs</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public void put(Key key, Value val)
+{
+    put(root, key, val);
+}
+private Node put(Node x, Key key, Value val)
+{
+    if (x == null)    return new Node(key, val);
+    int cmp = key.compareTo(x.key());
+    if(cmp == 0)    x.val = val;
+    else if(cmp &#x3C; 0)    put(x.left, key, val);
+    else if (cmp > 0)   put(x.right, key, val);
+    return x;
+}
+</code></pre>
+<p>Cost: Number of compares = 1+ depth of node</p>
+<h3>Mathematical analysis</h3>
+<p>Implementation|</p>
+<h2>ordered operations</h2>
+<h3>Maximum and minimum</h3>
+<ul>
+<li>一直往左边找直到null</li>
+<li>一直往右边找直到null</li>
+</ul>
+<h3>floor and ceiling</h3>
+<ul>
+<li>Floor: largest key &#x3C;= given key</li>
+<li>Ceiling: Smallest key >= given key</li>
+</ul>
+<h4>Computing the floor</h4>
+<ul>
+<li>
+<p>k = the key at root</p>
+<p>The foor of k is k</p>
+</li>
+<li>
+<p>k &#x3C; the key at root</p>
+<p>往左边找</p>
+</li>
+<li>
+<p>k > the key at root</p>
+<p>往右边找，如果如果没有其他数在right subtree 就是此root</p>
+</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public Key floor(Key key)
+{
+    Node x = floor(root, key);
+    if x == null    return null;
+    else    return x.key;
+}
+private Node floor(Node x, Key key)
+{
+    if (x == null)  return null;
+    int cmp = key.compareTo(x.key);
+    if cmp == 0     return x;
+    else if (cmp &#x3C; 0)      return  floor(x.left, key);
+    else if (cmp > 0)
+    {
+        t = floor(x.right, key);
+        if (t = null)   return t;
+        else  return x;
+    }
+}
+</code></pre>
+<h3>Subtree counts</h3>
+<ul>
+<li>In each node, we store the number of the subtree rooted at the node </li>
+<li>当implement size()的时候，return count</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public int size()
+{return size(root)}
+
+private int size(Node x)
+{
+    if x == null    return 0;
+    else    return x.count;
+}
+
+private node put(Node x, Key key, Value val)
+{
+    if x == null    return new Node(key, val, 1);
+    int cmp = key.compareTo(x.key);
+    if (cmp &#x3C; 0)    x.left = put(x.left, key, val);
+    else if(cmp > 0)    x.right = put(x.right,key, val)
+    else    x.val = val;
+    return x;
+    x.count = size(x.left) + size(x.right)+ 1;
+}
+</code></pre>
+<h3>Rank</h3>
+<p>Cases</p>
+<ul>
+<li>如果key 比x.key小：代入left subtree</li>
+<li>如果key 比x.key大：left subtree的size加上x本身加上（代入right subtree）的值</li>
+<li>如果key = x.key： leftsubtree 的size</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public int rank(Key key)
+{
+    return rank(key, root);
+}
+private int rank(Key key, Node x)
+{
+    if (x == null)  return 0;
+    int cmp = key.compareTo(x.key);
+    if (cmp &#x3C; 0)    return rank(key, x.left);
+    else if(cmp > 0)    return 1 + size(x.left) + rank(key, x.right);
+    else if(cmp == 0)   return size(x.left);
+}
+</code></pre>
+<h3>Inorder traversal</h3>
+<ul>
+<li>Traverse left subtree</li>
+<li>Enqueue key</li>
+<li>Traverse right subtree</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public Iterable&#x3C;Key> keys()
+{
+    Queue&#x3C;key> q = new Queue&#x3C;key>();
+    inorder(root, q);
+    return q;
+}
+private void inorder(Node x, Queue&#x3C;key> q)
+{
+    if (x == null)  return;
+    inorder(x.left, q);
+    q.enqueue(x.key);
+    inorder(x.right, q);
+}
+</code></pre>
+<h2>deletion</h2>
+<h3>Deleting the minimum</h3>
+<ul>
+<li>Go left until find a node with a null left link</li>
+<li>Replace that node by its right link</li>
+<li>Update subtree counts</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public void deleteMin()
+{   return deleteMin(root);}
+private Node deleteMin(Node x)
+{
+    if (x.left == null) return x.right;
+    x.left = deleteMin(x.left);
+    x.count = 1 + size(x.left) + size(x.right);
+}
+</code></pre>
+<h3>Hibbord deletion</h3>
+<p><em>TO delete a node with key k: search for node t containing key k</em></p>
+<ul>
+<li>Case 1(0 children): Delete t by setting a parent to null</li>
+<li>Case 2(1 childre): Delete t by replacing parent link</li>
+<li>Case 3(2 children)<ul>
+<li>Find successor x of t(right subtree中最小的）</li>
+<li>Delete the min in t's right subtree</li>
+<li>put x in t's spot</li>
+</ul></li>
+</ul>
+<h4>Java implementation</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public void deleteMin(Key key)
+{   return deleteMin(root, key); }
+private Node deleteMin(Node x, Key key)
+{
+    if x == null    return null;
+    int cmp = key.compareTo(x.key);
+    // Search for key
+    if(cmp &#x3C; 0)     x.left = delete(x.left);        
+    else if(cmp > 0)    x.right = delete(x.right);
+    else
+    {
+        //如果只有一个child, 此node return为那个child
+        if(x.left) == null  return x.right;
+        else if(x.right) == null    return x.left;
+        else
+        {
+            //如果有两个child, 选出right subtree 里的最小值作那个node
+            Node t = x;
+            x = min(t.right);
+            x.left = t.left;
+            x.right = deleteMin(t.right);
+            return x;
+        }
+    }
+}
+</code></pre>
+<h3>Hashcode Caching by String</h3>
+<p><em>aching the hashcode of an object can avoid the recalculation of hashcode again and again and thus increase application performance.</em></p>
+<p>using an object as a key in maps like HashMap.</p>
+<h4>String class's built-in hashcode caching mechanism.</h4>
+<p>在java 中</p>
+<p>the hash code for a String object被计算为</p>
+<pre class="cm-s-3024-day CodeMirror"><code>s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
+</code></pre>
+<ul>
+<li>
+<p>hashcode depends on its contents</p>
+</li>
+<li>
+<p>object should be immutable</p>
+</li>
+</ul>
+<p><em>如果object 是mutable,当内容改变是hashcode 也要改变  </em></p>
+<h4>definition of hashCode() method :</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>  1494       public int hashCode() {
+ 1495           int h = hash;
+ 1496           if (h == 0 &#x26;&#x26; count > 0) {
+ 1497               int off = offset;
+ 1498               char val[] = value;
+ 1499               int len = count;
+ 1500  
+ 1501               for (int i = 0; i &#x3C; len; i++) {
+ 1502                   h = 31*h + val[off++];
+ 1503               }
+ 1504               hash = h;
+ 1505           }
+ 1506           return h;
+ 1507       }
+</code></pre>
+<ul>
+<li>
+<p>hash is used to store the haschode for a String object. </p>
+<pre class="cm-s-3024-day CodeMirror"><code>int h = hash;
+</code></pre>
+</li>
+<li>
+<p>Definition of hash variable</p>
+<pre class="cm-s-3024-day CodeMirror"><code>  122       /** Cache the hash code for the string */
+123       private int hash; // Default to 0
+</code></pre>
+<p><em>each String object's hashcode is stored in this private variable hash.</em></p>
+</li>
+</ul>
+<p>当hashCode()被调用的时候，</p>
+<ul>
+<li>
+<p>检查variable hash 是否为0</p>
+</li>
+<li>
+<p>Variable hash 为0， 意味着 hashcode() method 被第一次调用，未被计算</p>
+</li>
+<li>
+<p>If hash is equals to 0, 只有与string obeject 对应的hash code 被计算，并储存在variable hash中</p>
+</li>
+<li>
+<p>同一个string object的hash code被再次调用时,hash 的值不为0  and hashcode 不会被二次计算，会直接使用hash 里面的值</p>
+</li>
+</ul>
+<h1>Hashing</h1>
+<h2>Basic plan</h2>
+<p>Save items in a key-indexed table</p>
+<ul>
+<li>
+<p>Hash function
+通过key找到index的方法</p>
+</li>
+<li>
+<p>Issues</p>
+<ul>
+<li>Equality test: 检查两个key 是否相等</li>
+<li>Collision resolution: 解决两个key hash 到同一个index的情况</li>
+</ul>
+</li>
+<li>
+<p>Classic space-time tradeoff</p>
+<p>在现实情况中，及存在space limitation也存在time limitation，要在两者之间平衡</p>
+</li>
+</ul>
+<h2>Hash function</h2>
+<p>将keys相对均匀地分配table index中</p>
+<h3>Convention</h3>
+<p>如果x.equal(y) 那么x.hashCode() == y.hashCode()为True， 反之亦然</p>
+<h3>Implementing hash code: integers, booleans, and doubles</h3>
+<h4>Integer</h4>
+<p>整数的hash code 是他本身</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public final class Integer
+{
+    private final int value;
+    ...
+    public int hashCode()
+    {   return value;}
+}
+</code></pre>
+<h4>Boolean</h4>
+<p>只有正和负，分别return对应的hashcode</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public final class Boolean
+{
+    private final boolean value;
+    ...
+    public int hashCode()
+    {
+        if (value)  return 1231;
+        else    return 1237;
+    }
+}
+</code></pre>
+<h4>Doubles</h4>
+<p>Double 有64bits,hashcode有32bits
+先将double 转化为对应的bits,然后Xor most significant 32-bits with least significant 32-bits</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public final class Double
+{
+    private final double value;
+    ...
+    public int hashCode()
+    {
+        long bits = doubleToBits(value);
+        return int(bits^(bits >>> 32));
+    }
+}
+</code></pre>
+<h3>Implementing hash code: strings</h3>
+<p>h = s[0] * 31^(L-1) +... s[L-2] * 31 + s[L-1] *31^0</p>
+<h4>Performance optimization</h4>
+<p>将算好后的hash值h 存储在hash variable 中，下次运算之前检查一下是否之前运算过，如果已经运算过直接调用</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public final class String
+{
+    private int hash = 0;
+    private char[] s;
+    public int hashCode()
+    {
+        int h = hash;
+        if(h != 0)  return h;
+        else
+        {
+            for (int i = 0; i &#x3C; length(); i++)  
+                h = s[i] + h * 31;
+        }
+        h = hash;
+        return h;
+    }
+}
+</code></pre>
+<h3>Modular hashing</h3>
+<ul>
+<li>Hash code: An int between -2^31 and 2^31-1</li>
+<li>Hash function: an int between 0 and M-1
+先化为正整数在除以约数</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private int hash(Key key)
+{   return(key.hashCode() &#x26; 0x7fffffff) % M; }
+</code></pre>
+<h3>Uniform hashing assumption</h3>
+<p>每个key 都被平均的分配到1~M-1中</p>
+<h2>Seperate chaning</h2>
+<h3>Collision</h3>
+<p>两个key hash 到同一个index 中
+当array 中的元素M小于key的数N</p>
+<ul>
+<li>Hash: 把key hash 到0~M-1中</li>
+<li>Insert: 把新添的元素放在第i个chain中</li>
+<li>Search: 只要找第i 个chain</li>
+</ul>
+<h3>Seperate chaining ST: Java Implementation</h3>
+<ul>
+<li>从hashtable 中找某个Key对应的value</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public class SeperateChainingHashST&#x3C;Key, Value>
+{
+    private int M = 97;     // number of chains
+    private Node[] st = new Node[M];
+    private static class Node
+    {
+        private Object key;
+        private Object val;
+        private Node next;
+        ....
+    }
+    private int hash(Key key)
+    {
+        return (key.hashCode() &#x26;0x7fffffff) %M;
+    }
+    public Value get(Key key){
+        int i = hash(key);
+        for(Node x = st[i]; x! = 0; x.next)
+            if(key.equals(x.key))   return (Value)x.val;
+        return null;
+    }
+}
+</code></pre>
+<ul>
+<li>将key-value pairs 放在hash table上的情况（put function)</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public void put(Key key, Value val)
+{
+    int i = hash(key);
+    for (Node x = st[i]; x!= null; x = x.next)
+    {
+        //如果key在chain中，将value改成现值
+        if key.equals(x.key)    x.val = val;
+        //在chain st[i]的头上加上一个新的key-value pair
+        else    st[i] = new Node(Key key, Val val, st[i]);
+    }   
+}
+</code></pre>
+<h3>Analysis of seperate chaining</h3>
+<p>在uniform-hashing的情况下， N/M的值趋向1</p>
+<p>Search 和insert的次数与N/M成正比</p>
+<h2>Linear probing</h2>
+<p>Hash table中 array 的元素M大于key 的数N</p>
+<ul>
+<li>
+<p>Hash: map k to integer i between 0 and M-1</p>
+</li>
+<li>
+<p>Insert:</p>
+<ul>
+<li>如果index i free,插入</li>
+<li>如果不是，找后面的位置</li>
+</ul>
+</li>
+<li>
+<p>Search</p>
+<p>从st[i]开始找，知道最近的一个free index如果没有就不在</p>
+</li>
+</ul>
+<h3>Implementation</h3>
+<pre class="cm-s-3024-day CodeMirror"><code>public class LinearProbingHashST&#x3C;Key, Value>
+{
+    private int M = 30001;
+    private Value[] vals = (Value[]) new Object[M];
+    private Key[] keys = (Key[]) new object[M];
+    private int hash(Key key)
+    {//the same as before)
+    public void put(Key key, Value val)
+    {
+        int i;
+        for(i = hash(key); keys[i] != null; i = (i+1)%M)
+            if (keys[i].equals(key))
+                break;
+        keys[i] = key;
+        vals[i] = val;
+    }
+    
+     public Value get(Key key)
+    {
+        int i;
+        for(i = hash(key); keys[i]!= null; i = (i + 1) % M)
+        {
+            if key.equals(keys[i])  return val[i];
+        }
+        return null;
+    }
+}
+</code></pre>
+</body>
+</html>

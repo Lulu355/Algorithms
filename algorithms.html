@@ -1,0 +1,1640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Algorithms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta keywords="">
+<style>
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;
+color: #24292e;
+font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+  sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+
+.dark, .solarizedDark {
+  color: #FFF;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: 600;
+}
+
+hr:before {
+  content: '';
+  display: table;
+}
+
+hr:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-roman;
+}
+
+ol ol ol,
+ol ul ol,
+ul ol ol,
+ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+dd {
+  margin-left: 0;
+}
+
+code,
+pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  font-size: 12px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+&:before {
+  content: '';
+  display: table;
+}
+
+&:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+> :first-child {
+  margin-top: 0 !important;
+}
+
+> :last-child {
+  margin-bottom: 0 !important;
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+blockquote {
+  margin: 0;
+  border-left: 0.25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+blockquote,
+dl,
+ol,
+p,
+pre,
+table,
+ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+h1,
+h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.875em;
+}
+
+h6 {
+  color: #6a737d;
+  font-size: 0.85em;
+}
+
+ol,
+ul {
+  padding-left: 2em;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+li {
+  word-wrap: break-all;
+}
+
+li > p {
+  margin-top: 16px;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+table th {
+  font-weight: 600;
+}
+
+table td,
+table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+img {
+  border-style: none;
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+img[align='right'] {
+  padding-left: 20px;
+}
+
+img[align='left'] {
+  padding-right: 20px;
+}
+
+code {
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: 0.2em 0.4em;
+}
+
+p code,
+li code
+{
+  padding: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+pre {
+  word-wrap: normal;
+}
+
+pre > code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.highlight {
+  margin-bottom: 16px;
+}
+
+.highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.highlight pre,
+pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+:checked + .radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.task-list-item {
+  list-style-type: none;
+}
+
+.task-list-item + .task-list-item {
+  margin-top: 3px;
+}
+
+.task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+hr {
+  box-sizing: content-box;
+  background: transparent;
+  overflow: hidden;
+  background-color: #e1e4e8;
+  border: 0;
+  height: 0.25em;
+  margin: 24px 0;
+  padding: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dark p code,
+.dark li code
+{
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: #03C588;
+}
+.auto p code,
+.auto li code
+{
+  background-color: #F9F9F9;
+  border-color: rgba(0,0,0,0.26);
+  color: #03C588;
+}
+.light p code,
+.light li code
+{
+  background-color: #F9F9F9;
+  border-color: rgba(0,0,0,0.26);
+  color: #03C588;
+}
+.sepia p code,
+.sepia li code
+{
+  background-color: #efe8d6;
+  border-color: rgba(0,0,0,0.26);
+  color: #F77942;
+}
+.solarizedDark p code,
+.solarizedDark li code
+{
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: #36abe3;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+</head>
+<body>
+<h1>Union find</h1>
+<h2>Union find API</h2>
+<pre class="cm-s-3024-day CodeMirror"><code>UnionFind(int N) :initialize union-find data structure with N objects
+
+void union(int p, int q):链接p, q
+int find(int p): p 所在的component identifier
+boolean connected(int p, int q) 判断是否connected
+int count():component 的数量
+</code></pre>
+<h2>dynamic-connectivity client</h2>
+<ul>
+<li>从standard input 中读N个object</li>
+<li>Repeat:<ul>
+<li>从standard input中读pair of integers</li>
+<li>如果不相连， 连起来</li>
+</ul></li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public static void main(String[],args)
+{
+    int N = StdIn.readInt();
+    UF uf = new UF(N)
+    while(!Std.isEmpty())
+    {
+        int p = StdIn.readInt();
+        int q = StdIn.readInt();
+        if (!uf.connected(p, q))
+        {
+            uf.union(p, q);
+            StdOut.printIn(p + " " + q);
+        }
+    }
+}
+    
+</code></pre>
+<h2>1.3 Bags, queues and stacks</h2>
+<h3>stacks</h3>
+<h4>stack API</h4>
+<p>public class stackOfStrings</p>
+<ul>
+<li>
+<p>Create an empty stack</p>
+<pre class="cm-s-3024-day CodeMirror"><code>    StackOfStrings() 
+</code></pre>
+</li>
+<li>
+<p>insert a new string onto stack</p>
+<pre class="cm-s-3024-day CodeMirror"><code>    void push(String item)
+</code></pre>
+</li>
+<li>
+<p>remove and return the string</p>
+<pre class="cm-s-3024-day CodeMirror"><code>    String pop()
+</code></pre>
+</li>
+<li>
+<p>is the stack empty?</p>
+<pre class="cm-s-3024-day CodeMirror"><code>    boolean isEmpty()
+</code></pre>
+</li>
+<li>
+<p>number of strings on the stack</p>
+<pre class="cm-s-3024-day CodeMirror"><code>    int size()
+</code></pre>
+</li>
+</ul>
+<h4>stack test client</h4>
+<p>要求： 如果string 为'-' 把string 从stack 上拿下， Print it
+Otherwise，push string onto the stack</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public static void main(String[] args)
+{
+    StackOfStrings stack = new StackOfStrings();
+    while(!StdIn.isEmpty())
+    {
+        String s = StdIn.readString();
+        if (s.equals("-") StdOut.print(stack.pop());
+        else    stack.push(s)
+    }
+}
+</code></pre>
+<h4>Stack pop: Linked-list implementation</h4>
+<ul>
+<li>Save item to return</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>String item = first.item;
+</code></pre>
+<ul>
+<li>Delete first node</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>first = first.next;
+</code></pre>
+<ul>
+<li>Inner class</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private class Node
+{
+    String item;
+    Node next;
+}
+
+</code></pre>
+<h4>Stack push</h4>
+<ul>
+<li>Save a link to the list</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>Node oldfirst = first
+</code></pre>
+<ul>
+<li>Create a new node for the beginning</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>first = new Node();
+</code></pre>
+<ul>
+<li>Set the instance variables in the new node</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>first.item = 'not';
+first.next = oldfirst;
+</code></pre>
+<h4>Linked-list impletation in Java</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public class LinkedStackOfStrings
+{
+    private Node first = null;
+    prive class Node
+    {
+        String item;
+        Node next;
+    }
+    public boolean isEmpty()
+    { return first == null}
+    
+    public void push(String item)
+    {
+        Node oldfirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldfirst;
+    }
+    
+    public String pop()
+    {
+        String item = first.item();
+        first = first.next;
+        return item;
+    }
+}
+</code></pre>
+<h4>Linked-list implementation performance</h4>
+<p>One item</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Structure</th><th>Bytes</th></tr></thead><tbody><tr><td>Object Overhead</td><td>16</td></tr><tr><td>Extra Overhead</td><td>8</td></tr><tr><td>item</td><td>8</td></tr><tr><td>Next</td><td>8</td></tr><tr><td>total</td><td>40</td></tr></tbody></table>
+<h4>Array implementation</h4>
+<ul>
+<li><strong>s[]</strong> 有n个element的array</li>
+<li><strong>push()</strong> 将item加到第n位</li>
+<li><strong>pop</strong> 将Item从第n-1位移除</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public class FixedCapacityStackOfStrings
+{
+    private String[] s;
+    private int N =0;
+    
+    public FixedCapacityStackOfStrings(int capacity)
+    
+    {s = new String[capacity];}
+    public boolean isEmpty()
+    {return N== 0;}
+    public void push(String item)
+    {s[N++] = item}   # Index into array, then increment N
+    public String pop()
+    {return s[--N]} # decrement N, then index into array
+    }
+}
+</code></pre>
+<h3>Resizing Arrays</h3>
+<h4>Stack consideration</h4>
+<ul>
+<li><strong>Underflow:</strong> It pop from an empty stack</li>
+<li><strong>Overflow:</strong> Use resizing array for array implemention</li>
+</ul>
+<h4>Stack: Resizing Array implementation</h4>
+<ul>
+<li>
+<p>group array</p>
+<p>Create a new  array of twice the size, and copy items</p>
+</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public ResizingArrayStackOfStrings()
+{ s = new String[1]}
+
+public void push(String item)
+{
+    if (N == s.length) resize (2 * s.length);
+    s[N++] = item;
+}
+private void resize(int capacty)
+{
+    String[] copy = new String[capacity];
+    for (int i = 0; i &#x3C; N; i++)
+        copy[i] = s[i];
+    s = copy
+}
+</code></pre>
+<h4>Stack: amortized cost of adding to a stack</h4>
+<p>Cost of inserting first N items:
+N + (2+4+8+...+N) ~3N</p>
+<h4>Stack: Resizing Array implementation</h4>
+<p>push(): double size when s[] is full</p>
+<p>pup(): halve size when s[] is one-quarter full</p>
+<p>代码实现：</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public String pop(){
+    item = s[--N];
+    s[N] = null;
+    if (N > 0 &#x26;&#x26; N == s.length / 4) resize(s.length / 2);
+    return item;
+}
+</code></pre>
+<h4>Stack resizing-array implementation: performance</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>typle</th><th>best</th><th>worst</th><th>amortized</th></tr></thead><tbody><tr><td>construct</td><td>1</td><td>1</td><td>1</td></tr><tr><td>push</td><td>1</td><td>N</td><td>1</td></tr><tr><td>pop</td><td>1</td><td>N</td><td>1</td></tr><tr><td>size</td><td>1</td><td>1</td><td>1</td></tr></tbody></table>
+<h4>memory usage</h4>
+<ul>
+<li>Reference to array(8 bytes)</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public class ResizingArrayStackOfStrings
+</code></pre>
+<ul>
+<li>array overhead(24 bytes)</li>
+<li>array(8 * array size)</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private String[] s;
+</code></pre>
+<ul>
+<li>int(4 bytes)</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private int N = 0;
+</code></pre>
+<ul>
+<li>padding(4 bytes)</li>
+</ul>
+<h3>Queues</h3>
+<h4>queue API</h4>
+<ul>
+<li>Create an empty queue</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>QueueOfStrings()
+</code></pre>
+<ul>
+<li>insert a new string onto que</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>void enqueue(String item)
+</code></pre>
+<ul>
+<li>remove and return the string</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>String dequeue()
+</code></pre>
+<ul>
+<li>is the queue empty?</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>boolean isEmpty()
+</code></pre>
+<ul>
+<li>number of strings on the queue</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>int size()
+</code></pre>
+<h4>Enque:linked-list implementation in Java</h4>
+<ul>
+<li>save item to return </li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>String item = first.item;
+</code></pre>
+<ul>
+<li>delete first node</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>first = first.next;
+</code></pre>
+<ul>
+<li>return saved item</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>return item
+</code></pre>
+<p><em>Note: identical to pop()</em></p>
+<h4>dequeue</h4>
+<ul>
+<li>Save a link to the last node</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror language-Node"><code class="language-Node"></code></pre>
+<ul>
+<li>Create a new node for  the end</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror language-last"><code class="language-last"></code></pre>
+<ul>
+<li>link the new node to the next end of the list</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>oldlast.next = last;
+</code></pre>
+<h4>inner class</h4>
+<p>private class Node
+{
+String item;
+Node next
+}</p>
+<h4>linked-list impletation in Java</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public LinkedQueueOfStrings{
+    private Node first, last;
+    
+    private class Node{
+        String item;
+        Node next;
+    }
+    
+    public boolean isEmpty(){
+    return (first == null)
+    }
+    public void enqueue(String item){
+        Node oldlast = last;
+        last = new Node();
+        last.item = String item;
+        if (isEmpty() == True)  first = last;
+        else{
+            oldlast.next = last;
+            last.next = null
+    }
+    public String dequeue(){
+        String item = first.item;
+        first = first.next;
+        return item
+    }
+}
+</code></pre>
+<h3>Generics</h3>
+<h4>Generic Stack: linked-list implementation</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Stack&#x3C;item> # 加上&#x3C;Item>
+{
+    private Node first = null;
+    prive class Node
+    {
+        Item item;   # String 换为item
+        Node next;
+    }
+    public boolean isEmpty()
+    { return first == null}
+    
+    public void push(Item item)  # String换为item
+    {
+        Node oldfirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldfirst;
+    }
+    
+    public String Item pop()  # String 换为Item
+    {
+        Item item = first.item(); #String 换为Item
+        first = first.next;
+        return item;
+    }
+}
+</code></pre>
+<h4>Generic stack: array implementation</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public class FixedCapacityStacks&#x3C;Item>{     # 加&#x3C;item>
+    private int N = 0;
+    private Item[] s; # String[]改为Item[]
+    public FixedCapacityStringOfStacks(int capacity){
+    s = (Item[])new Object[capacity]; # 此处注意
+    
+    }
+    public boolean isEmpty()
+        {return N == 0；}
+    public void push(Item item){    # String改为Item
+        s[N++] = item;
+    }
+    public Item pop(){ 
+        s[--N] = item;
+        return item;
+    }
+    
+
+### Iterators
+- Iterable
+  Has a method that returns an iterator
+</code></pre>
+<h1>iterable iterface</h1>
+<pre class="cm-s-3024-day CodeMirror"><code>pubic interface Iterable&#x3C;Item>
+{
+    iterator &#x3C;item> iterator();
+}
+</code></pre>
+<ul>
+<li>iterator
+has methods hasNext() &#x26; next()<pre class="cm-s-3024-day CodeMirror"><code>public interface Iterator&#x3C;Item>
+{
+    boolean hasNext();
+  Item next();
+  void remove();
+}
+
+</code></pre></li>
+<li>Java supports client code</li>
+</ul>
+<h1>Sorts</h1>
+<h2>Elementary sorts</h2>
+<h3>Rules of the game</h3>
+<p>1.Sort random real numbers in ascending order</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Experiment
+{
+    public static void main(String[] args)
+    {
+        int N = Integer.parseInt(args[0]);
+        double a = new double(N);
+        for (int i = 0; i &#x3C; N; i++)
+            a[i] = StdRandom.uniform();
+        Insertion.sort(a)
+        for (int i = 0; i&#x3C; N; i++)
+            StdOut.println(a[i])
+            
+    }
+}
+</code></pre>
+<p>2.Sort strings from file in alphabetical order</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class StringSorter
+{
+    public static void main(String[] args)
+    {
+        String[] s = in.readAllStrings(args[0]);
+        insertion.sort(s);
+        for (int i = 0; i &#x3C; s.length; i++)
+        {
+            StdOut.println(s[i])
+        }
+    }
+}
+</code></pre>
+<p>3.Sort the files in a given directory by filename</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class FileSorter
+{
+    public static void main(String[] args)
+    {
+        File directory = new File(args[0]);
+        File[] files = directory.listFiles();
+        Insertion.sort(files);
+        for (int i = 0; i &#x3C; file.length; i++)
+            StdOut.println(file[i].getname())
+    }
+}
+</code></pre>
+<h4>Callbacks</h4>
+<p>In order to sort any type of data
+Callback = reference to executable code</p>
+<ul>
+<li>Client passes array of objects to sort() function</li>
+<li>The sort() function call back object's compareTo() method as needed</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Example
+{
+    public static void sort(Comparable[] a)
+    {}
+    
+    public static boolean less(Comparable v, Comparable w)
+    {   return v.compareTo(w) &#x3C; 0;}
+   
+    private static void exachange(Comparalbe[] a, int i, int j)
+    {   Exchange the ith and jth element
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+    public static void show(Comparable[] a)
+    {   // for the array, on a single line
+        for (int i = 0; i &#x3C; a.length; i++)
+        {   StdOut.print(a[i] + " ")}
+    }
+    private static boolean isSorted(Comparable[] a)
+    {//Test whether the array is in order   
+        for (int i = 0; i &#x3C; a.length; i++)
+            if (less(a[i], a[j]))   return false;
+        return ture;
+    }
+    public static void main(String[] args)
+    {   //Read strings from standard input, sort them and print.
+        String[] a = StdIn.readAllStrings();
+        sort(a);
+        assert isSorted(a);
+        show(a);
+    }
+}
+</code></pre>
+<h4>Comparable interface(built in to java)</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public interface Comparable&#x3C;Item>
+{
+    public int compareTo(Item that);
+
+}
+</code></pre>
+<p>Note: <code>public interface Comparable&#x3C;T></code>
+此接口强行对实现它的每个类的对象进行<strong>整体排序</strong>。这种排序被称为类的自然排序，类的 compareTo 方法被称为它的自然比较方法。</p>
+<p>实现此接口的对象列表（和数组）可以通过 Collections.sort（和 Arrays.sort）进行自动排序。实现此接口的对象可以用作有序映射中的键或有序集合中的元素，无需指定比较器。</p>
+<p><strong>int compareTo(T o)</strong>
+与 对象比较，小于为负整数， 等于为零， 大于为正整数</p>
+<ul>
+<li>v.comparable(w) &#x3C; 0	则v &#x3C; w</li>
+<li>v.comparable = 0	则 v = w</li>
+<li>v.comparable > 0 则 v > w</li>
+</ul>
+<p>Example
+此接口用于特定的class</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Date implements Comparable&#x3C;Date>
+{
+    public static int compareTo(int m, int d, int y)
+    {
+        int year = y;
+        int month = m;
+        int day = d;
+        if (this.year &#x3C; that.year)  return -1;
+        if (this.year = that.year)  return 0;
+        if (this.year > that.year)  return 1;
+        if (this.month &#x3C; that.month)  return -1;
+        if (this.month = that.month)  return 0;
+        if (this.month > that.month)  return 1;
+        if (this.day &#x3C; that.day)  return -1;
+        if (this.day = that.day)  return 0;
+        if (this.day > that.day)  return 1;
+        return 0;
+    }
+}
+</code></pre>
+<h3>Selection Sort</h3>
+<p>不断地在剩下的array中找出最小值</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Selection
+{
+    pubic static void sort(Comparable [] a)
+    {
+        //构建未被sort的array
+        N = a.length
+        
+        for (int i = 0; i &#x3C; N; i++)
+        {
+            //找出剩下的array的最小值
+            min = i;
+            for (int j = i + 1; j &#x3C; N; j++)
+            {
+                if (less(a[j], a[min]))   min = j;
+            }
+            exch(a, i, min)
+        }
+    }
+    
+}
+</code></pre>
+<h4>Mathematical analysis</h4>
+<p>~N^2/2
+与input无关</p>
+<h3>Insertion sort</h3>
+<p>In iteration i, swap a/[i] with each larger entry to its left</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class insertion
+{
+    public static void sort(Comparable [] a)
+    {
+        int N = a.length
+        // Move the pointer to right
+        for (int i = 0; i &#x3C; N; i++)
+        {
+            //Moving from right to left, exchanging a[i] with larger entry to its left
+            for (int j = i; j > 0; j--)
+            {
+                if less(a[j], a[j-1])   exch(a, j, j-1);
+                else    break;
+            }
+        }
+    }
+}
+</code></pre>
+<h4>Best and worst case</h4>
+<ul>
+<li>Worst case(Desending order) ~N^2/2</li>
+<li>Average ~N^2/4</li>
+<li>Best case(ascending order) ~N-1</li>
+<li>Partially sorted order
+Linear
+number of exchanges </li>
+</ul>
+<h3>Shellsort</h3>
+<p>Move entries more than one position at a time by h-sorting the array </p>
+<p><em>h-sort the array: Insertion sort with stride length h</em></p>
+<p>先间隔大的insertion sort再间隔小的insertion sort</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Shell
+{
+    public static void sort(Comparable[] a)
+    {
+        int N = a.length;
+        int h = 1;
+        while(h &#x3C; N/3)  h = 3 * h + 1;  //找到合适的间隔
+        for (int i = h; i &#x3C; N; i++)     //i的作用：从前到后依次排序
+        {
+            for(int j = i; j >= h&#x26;&#x26;less(a[j], a[j-h]; j = j-h)      //j的作用：sort间隔相同的一组数
+                exch(a, j, j -h)
+            h = h/3
+        }
+        
+    }
+}
+                
+            
+</code></pre>
+<h4>analysis</h4>
+<p>The worst case: O(N^(3/2))</p>
+<h3>Shuffle sort</h3>
+<ol>
+<li>generate a random real number for each entry</li>
+<li>sort the array</li>
+</ol>
+<pre class="cm-s-3024-day CodeMirror"><code>puclic class StdRandom
+{
+    ...
+    public static void shuffle(Object[] a)
+    int N = a.length;
+    for (int i = 0; i &#x3C; N, i++)
+    {
+        r = StdRandom.uniform(i + 1);
+        exch(a, i, r);
+    }
+}
+</code></pre>
+<h2>MergeSort</h2>
+<h3>Mergesort</h3>
+<p><strong>Basic plain</strong></p>
+<ol>
+<li>
+<p>Devide array into two halves</p>
+<p><em>把array[lo, hi]分为[lo, mid]与[mid+1, hi]</em></p>
+</li>
+<li>
+<p>Recursively sort each array</p>
+</li>
+<li>
+<p>Merge two halves</p>
+</li>
+</ol>
+<p><strong>Note: 对于a[i++] 先赋值a[i] 再将i 加1</strong></p>
+<pre class="cm-s-3024-day CodeMirror"><code>private static void merge(Comparable[] a, lo, mid, hi)
+{
+    Comparable[] aux;
+    int i = lo, j = hi;
+    for (k = lo; k &#x3C;= hi; k++)
+        aux[k] = a[k]; //Copy the array a to aux
+    for (k = lo; k &#x3C;= hi; k++)
+    {
+        if i > mid      a[k] = aux[j++];    //If left side exhaust, 直接加右侧的
+        elif j > hi     a[k] = aux[i++];    //If right side exhause，直接加左侧的
+        elif less(aux[i], aux[j])   aux[k] = aux[i++];
+        else    a[k] = aux[j++];
+}
+</code></pre>
+<p><strong>Top-down</strong> merge sort</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Merge
+{
+    public static void sort(Comparable[] a)
+    {
+        aux = new Comparable[a.length];     //新建一个array
+        sort(a, 0, a.length - 1);
+    }
+        
+    private static void merge(Comparable[], a, lo, mid, hi)（同上）
+    private static void sort(Comparable a, int lo,int hi)
+    {
+        if lo >= hi     return;
+        int mid = (lo + hi) / 2;
+        sort(a, lo, mid);       //Sort the left part
+        sort(a, mid+1, hi);     //Sort the right part
+        merge(a, lo, mid, hi);      //Merge them together
+    }
+}
+</code></pre>
+<h4>analysis</h4>
+<p>The number of compares for merge
+C(n) >= C(n/2) + C(n/2) + n/2
+~nlgn</p>
+<h4>Improvement</h4>
+<ul>
+<li>对于比较小的array,采用insertion sort</li>
+<li>如果a[mid]&#x3C;a[mid+1],前一半的array全部小于后一般的array，就不用merge()了</li>
+<li>直接将sort好的elemnent 放到auxiliary arrray 中<br>
+</li>
+</ul>
+<h3>bottom-up mergesort</h3>
+<ul>
+<li>pass through the array, merging subarrays of size 1</li>
+<li>Repeat for subarrays of size 2,4,8...</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public class MergeBU
+{
+    public static Comparable[] aux;
+    // The same as before.
+    public static void sort(Comparable[] a)
+    {
+        N = a.length();
+        
+        for(h = 1; h &#x3C; N - h; h += h * 2)
+        {
+            // h为一个sort的长度
+            //每次merge()是2h
+            for (lo = 0; lo &#x3C; N - h; lo += 2*h)
+            {
+                //注意最后的区间，当hi处于[n-h, n-1]时要分类讨论
+                merge(a, lo, lo + h -1, Math.min(lo+2*h -1, n- 1);
+            }
+        }
+    }
+}
+                
+</code></pre>
+<h2>Quick Sort</h2>
+<h3>Quicksort</h3>
+<h4>Basic plan</h4>
+<ul>
+<li>Shuffle the array</li>
+<li>partition so that, for some j<ul>
+<li>entry a[j] is in place</li>
+<li>no larger entry to the left of j</li>
+<li>no smaller entry to the right of j</li>
+</ul></li>
+<li>Sort each entry recursively</li>
+</ul>
+<h4>步骤</h4>
+<ol>
+<li>将i从左向右扫描，遇到比a[0]大的就停下</li>
+<li>将j 从右向左扫描，遇到比a[0]小的就停下</li>
+<li>当i j重合以后，与a[0]交换</li>
+</ol>
+<h4>Code</h4>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> partition</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private static int partition(Comparable[] a, int lo, int hi)
+{
+    int i = lo;
+    int j = hi + 1;
+    while(true)
+    {
+        while(less(a[++i], a[lo]))
+            if i == hi      break;  //Find the item on the left to swap
+        while(less(a[lo], a[--j]))
+            if j == lo      break;      //Find the item on the right to swap
+        if i >= j       //Check if pointers cross
+            break;      
+        exch(a, i, j);      //Swap
+    }
+    exch(a, j, lo);
+    return j;   //Return the item now known to be in place
+}
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> 剩下部分</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Quick
+{
+    private static int partition(Comparable[] a, int lo, int hi)
+    {// The same as prvious code}
+    public static void(Comparable[] a)
+    {
+        StdRandom.shuffle(a);
+        hi = a.length - 1;
+        lo = 0;
+        sort(a, lo, hi);
+    }
+    private static void sort(Comparable[]  a, int lo, int hi)
+    {
+        
+        if hi &#x3C;= lo     return;
+        int j = partition(a, lo, hi);
+        sort(a[lo, j-1]);
+        sort(a[j+1, hi]);
+    }
+}
+</code></pre>
+<h4>Analysis</h4>
+<ul>
+<li>
+<p>Best case	</p>
+<p>~NlgN（正好均分）</p>
+</li>
+<li>
+<p>Worst case</p>
+<p>~1/2N^2（全在同一侧）</p>
+</li>
+<li>
+<p>Average case</p>
+<p>~1.39NlgN</p>
+</li>
+</ul>
+<h4>Practical improvement</h4>
+<ol>
+<li>
+<p>Insertion sort small subarrays</p>
+<p>  当array 长度足够短时用insertion sort</p>
+<pre class="cm-s-3024-day CodeMirror"><code>private static sort(Comparable[] a, int lo, int hi)
+{
+    if hi &#x3C;= lo + Cutoff - 1
+    Insertion.sort(a, lo, hi);
+       return;
+   else
+   {
+    j = partition(a, lo, hi);
+       sort(a, lo, j-1);
+       sort(a, j+1, hi);
+       return;
+   }
+}
+</code></pre>
+</li>
+<li>
+<p>pivot item = median</p>
+</li>
+</ol>
+<h3>Selection</h3>
+<ul>
+<li>Goal: Given an array of N items, find the kth smallest item</li>
+<li>Example: Min(k=0), max(k=N-1), median(k=N/2)</li>
+</ul>
+<h4>方法</h4>
+<p>j 为partition 以后return 的值，将j与k比较，判断是sort左半边还是右半边</p>
+<h4>Code</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public static Comparable select(Comparable[] a)
+{
+    hi = a.length - 1;
+    lo = 0;
+    StdRandom.shuffle(a);
+    while(hi&#x3C;lo)
+    {
+        int j = partition(a, lo, hi);
+        if (k&#x3C;j)    hi = j-1;
+        if(k>j)     lo = j+1;
+        else    return a[j];
+    }
+    return a[k];
+}
+</code></pre>
+<h4>Mathematic analysis</h4>
+<p><em>Quick-select takes linear time on average</em></p>
+<p><strong>Number of compares:</strong></p>
+<p>N+N/2+ N/4+...~2N</p>
+<p><strong>Formal analysis</strong></p>
+<p>2N + 2kln(N/k) + 2(N-k)ln(N/N-k)</p>
+<h3>Duplicate</h3>
+<p>使用于一个array中有多个相同的元素的情况</p>
+<h4>Goal</h4>
+<ul>
+<li>依次为lo, lt, gt, hi</li>
+<li>lo~lt 小于a[lo]</li>
+<li>lt~gt 等于a[lo]</li>
+<li>gt~hi 大于a[lo]</li>
+</ul>
+<h4>方法(a[lo] 为v)</h4>
+<ul>
+<li>(a[i] &#x3C; v) exchange a[lt] and a[i] increment both of lt and i</li>
+<li>(a[i] = v) increment i</li>
+<li>(a[i] > v) exchange a[i] and a[gt] decrement gt</li>
+</ul>
+<h4>Code</h4>
+<p>3-way quick sort</p>
+<pre class="cm-s-3024-day CodeMirror"><code>private static void sort(Comparable[] a, int lo, int hi)
+{
+    if (hi&#x3C;=lo) return;
+    int lt = lo;
+    int gt = hi;
+    int i = lo;
+    Comparable v = a[lo];
+    while(i &#x3C;= gt)
+    {
+        if (a[i] &#x3C; v)       exch(a, i++, lt++)
+        else if(a[i] = v)   i++;
+        else    exch(a,i, gt--);
+    }
+    sort(a, lo, lt -1);
+    sort(a, gt+1, hi);
+}
+</code></pre>
+<h2>Priority Queues</h2>
+<h3>API and elementary implementations</h3>
+<h4>priority queue</h4>
+<ul>
+<li>Stack: 后进后出</li>
+<li>Queue:先进后出</li>
+<li>Randomized queue:random item</li>
+<li>Priority:最大或最小</li>
+</ul>
+<h4>priority queue API</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public class MaxPQ&#x3C;key extends Comparable &#x3C;key>>
+</code></pre>
+<ul>
+<li>Create an empty priority queue<pre class="cm-s-3024-day CodeMirror"><code>MaxPQ()
+</code></pre></li>
+<li>Create a priority queue with given keys<pre class="cm-s-3024-day CodeMirror"><code>MaxPQ(Key[] a)
+</code></pre></li>
+<li>Insert a key into the priority queue<pre class="cm-s-3024-day CodeMirror"><code>void insert(Key v)
+</code></pre></li>
+<li>return and remove the largest key<pre class="cm-s-3024-day CodeMirror"><code>key delMax()
+</code></pre></li>
+<li>is priority queue empty?<pre class="cm-s-3024-day CodeMirror"><code>boolean isEmpty()
+</code></pre></li>
+<li>return the largest key<pre class="cm-s-3024-day CodeMirror"><code>key max()
+</code></pre></li>
+<li>number of entries in the priority queue<pre class="cm-s-3024-day CodeMirror"><code>int size()
+</code></pre></li>
+</ul>
+<h4>priority queue client example</h4>
+<p>Find the largest M items in a stream of N items</p>
+<pre class="cm-s-3024-day CodeMirror"><code>MinPQ&#x3C;Transaction> pq = new MinPQ&#x3C;Transaction>();
+while(StdIn.hasNextLine())
+{
+    String line = StdIn.readLine();
+    Transaction item = new Transaction(line);
+    pq.insert(item);
+    if (pq.size > M)
+        pq.delMin();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>implementation</th><th>time</th><th>space</th></tr></thead><tbody><tr><td>sort</td><td>NlogN</td><td>N</td></tr><tr><td>elementary PQ</td><td>MN</td><td>M</td></tr><tr><td>binary heap</td><td>NlogM</td><td>M</td></tr><tr><td>best in theory</td><td>N</td><td>M</td></tr></tbody></table>
+<h4>Priority Queue:Unordered array implementation</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public class UndorderedMaxPQ&#x3C;Key extends Comparable&#x3C;Key>>
+{
+    private Key[] pq;   //p[i] = ith element on pq;
+    private int N;  //number of elements on pq
+    public UnorderedMaxPQ(int Capacity)
+    {
+        pq = (Key[]) new Comparable[capacity];
+    }
+    public boolean isEmpty()
+    {   return N == 0;  }
+    public void insert(Key x)
+    { pq[N++] = x;}
+    public Key delMax()
+    {
+        int max = 0;
+        for(int i = 1; i &#x3C; N; i++)
+            if (less(max, i)) max = i;
+        exch(max, N-1);
+        return pq[--N];
+    }
+}
+</code></pre>
+<p>Implement all operations efficiency</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>implementation</th><th>insertion</th><th>del max</th><th>max</th></tr></thead><tbody><tr><td>Unordered array</td><td>1</td><td>N</td><td>N</td></tr><tr><td>Ordered array</td><td>N</td><td>1</td><td>1</td></tr><tr><td>Binary heap</td><td>logN</td><td>logN</td><td>1</td></tr></tbody></table>
+<h3>binary heaps</h3>
+<p><em>Binary heaps: Array representation of a heap-ordered complete binary tree</em></p>
+<ul>
+<li>
+<p>Heap-ordered binary tree</p>
+<ul>
+<li>Keys in nodes</li>
+<li>Parent's key no smaller than children's keys</li>
+</ul>
+</li>
+<li>
+<p>Array representation</p>
+<ul>
+<li>Indices start at 1</li>
+<li>Take nodes in level order</li>
+<li>No explicit links needed</li>
+</ul>
+</li>
+<li>
+<p>Can use array indices to move through tree</p>
+<ul>
+<li>Parent of node at k is at k/2</li>
+<li>Children of node at k are at 2k and 2k+1</li>
+</ul>
+</li>
+</ul>
+<h4>Promotion in a heap</h4>
+<p><em>Child's key becomes larger than its parent's key</em></p>
+<p>方法</p>
+<ul>
+<li>exchange key in child with key in parent</li>
+<li>Repeat until heap order restored</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private void swim(int k)
+{
+    while(k > 1 &#x26;&#x26; less(k/2, k))
+    {
+        exch(k/2, k);
+        k = k/2;
+    }
+}
+</code></pre>
+<h4>Insertion in the heap</h4>
+<p>Add node at end and swim it up
+Cost:最多1+lgN</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public void insert(Key x)
+{
+    pq[++N] = x;
+    swim(N);
+}
+</code></pre>
+<h4>Demotion in a heap</h4>
+<p><em>Parent's key becomes smaller than one of child's key</em></p>
+<ul>
+<li>exchange key in parent with key in larger child</li>
+<li>Repeat until heap order restored</li>
+</ul>
+<pre class="cm-s-3024-day CodeMirror"><code>private void sink(int k)
+{
+    while (2*k &#x3C;= N)
+    {
+        int j = 2*k;
+        if (j&#x3C; N &#x26;&#x26; less(j, j+1))   j++;
+        if (less(j, k))  break;
+        exch(j, k);
+        k = j;
+    }
+}
+</code></pre>
+<h4>Delete the maximum in a heap</h4>
+<p>Exchange root with node at end, then sink it down</p>
+<pre class="cm-s-3024-day CodeMirror"><code>public Key delMax()
+{
+    Key max = pq[1];
+    exch(1, N--);
+    sink(1);
+    pq[N+1] = null;
+    return max;
+}
+</code></pre>
+<h3>heapsort</h3>
+<h4>Basic plan</h4>
+<ul>
+<li>Create max-heap with all N keys</li>
+<li>Repeatedly remove the maximum key</li>
+</ul>
+<h4>Heap Construction</h4>
+<ul>
+<li>Build max heap using bottom-up method<pre class="cm-s-3024-day CodeMirror"><code>for(k = N/2; k >= 1; k--)
+    sort(a, k, N);
+</code></pre></li>
+<li>Remove the maximum, one at a time<pre class="cm-s-3024-day CodeMirror"><code>while(N > 1)
+{
+    exch(a, 1, N--);
+    sink(a, 1, N);
+}
+</code></pre></li>
+</ul>
+<h4>Java implementation</h4>
+<pre class="cm-s-3024-day CodeMirror"><code>public class Heap
+{
+    public static void sort(Comparable[] a)
+    {
+        int N = a.length;
+        for(int k = N/2; k >= 1; k--)
+            sink(a, k, N);
+        while(N >1)
+        {
+            exch(a, 1, N--);
+            sink(a, 1, --N);
+        }
+    }
+}
+private static void sink(Comparable [] a, int k, int N)
+{/*The same as before*/}
+
+}
+</code></pre>
+<h4>Mathematical analysis</h4>
+<ul>
+<li>Heap construction uses &#x3C;= 2N compares and exchanges</li>
+<li>Heapsort uses &#x3C;= 2NlgN compares and exchanges.</li>
+<li>In-place sorting algorithm with NlogN  worst-case</li>
+</ul>
+<h3>event-driven simulation</h3>
+</body>
+</html>
